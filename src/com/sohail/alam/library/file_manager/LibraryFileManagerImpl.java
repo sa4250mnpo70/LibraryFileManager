@@ -22,18 +22,16 @@ import javax.swing.JOptionPane;
 public class LibraryFileManagerImpl implements LibraryFileManager {
 
     /**
-     * 
+     *
      * @param str_fileLocation
-     * @return 
+     * @return
      */
-    public File getFile(String str_fileLocation){
+    public File getFile(String str_fileLocation) {
         File file;
-        
         file = new File(str_fileLocation);
-        
         return file;
     }
-    
+
     /**
      *
      * <p>
@@ -55,21 +53,21 @@ public class LibraryFileManagerImpl implements LibraryFileManager {
      * </pre> </p>
      *
      * @param parent
-     * @param str_content 
-     * @param str_defaultFilename 
-     * @param str_ApproveButtonText 
-     * @param str_ApproveButtonToolTipText 
-     * @param str_DialogTitle 
+     * @param str_content
+     * @param str_defaultFilename
+     * @param str_ApproveButtonText
+     * @param str_ApproveButtonToolTipText
+     * @param str_DialogTitle
      * @param content
      * @return
      * @throws Exception
      */
     @Override
     public boolean saveFileShowFileChooser(Component parent,
-            String str_content, 
-            String str_defaultFilename, 
+            String str_content,
+            String str_defaultFilename,
             String str_ApproveButtonText,
-            String str_ApproveButtonToolTipText, 
+            String str_ApproveButtonToolTipText,
             String str_DialogTitle) throws Exception {
 
         int overwriteFile;
@@ -117,6 +115,7 @@ public class LibraryFileManagerImpl implements LibraryFileManager {
                 output = new BufferedWriter(new FileWriter(file));
                 try {
                     output.write(str_content);
+                    return true;
                 } finally {
                     output.close();
                 }
@@ -152,12 +151,12 @@ public class LibraryFileManagerImpl implements LibraryFileManager {
                         output.close();
                         break;
                 }
+                return true;
             }
         } catch (Exception e) {
             throw e;
         } finally {
             output.close();
         }
-        return true;
     }
 }

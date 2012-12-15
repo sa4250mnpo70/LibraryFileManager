@@ -23,6 +23,7 @@ public class SaveFileShowFileChooserExample {
                     "Save", "Save this example file",
                     "Example of SaveFileShowFileChooser");
         } catch (Exception e) {
+            e.printStackTrace();
         }
         if (isSaved) {
             System.out.println("File Saved Successfully!");
