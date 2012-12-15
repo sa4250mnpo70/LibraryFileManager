@@ -115,7 +115,6 @@ public class LibraryFileManagerImpl implements LibraryFileManager {
                 output = new BufferedWriter(new FileWriter(file));
                 try {
                     output.write(str_content);
-                    return true;
                 } finally {
                     output.close();
                 }
@@ -158,5 +157,6 @@ public class LibraryFileManagerImpl implements LibraryFileManager {
         } finally {
             output.close();
         }
+        return false;
     }
 }
